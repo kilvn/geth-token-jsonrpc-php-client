@@ -35,7 +35,7 @@ class Wax
      * @throws Exception
      */
     public function __construct(
-        string $rpcHost,
+        string $rpcHost = 'localhost',
         int $rpcPort = 8545,
         string $contract_address = '',
         int $contract_decimals = 8,
