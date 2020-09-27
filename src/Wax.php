@@ -28,17 +28,12 @@ class Wax
      * Wax constructor.
      * @param string $rpcHost The host where your Geth's JSON-RPC is available
      * @param int $rpcPort The port where your Geth's JSON-RPC is available
-     * @param string $contract_address
-     * @param int $contract_decimals
      * @param bool $trimTrailingZeroes If true, then balances returned will have their trailing zeroes stripped from the string.
      * @param int $timeout
-     * @throws Exception
      */
     public function __construct(
         string $rpcHost = 'localhost',
         $rpcPort = 8545,
-        string $contract_address = '',
-        int $contract_decimals = 8,
         bool $trimTrailingZeroes = false,
         int $timeout = 60
     )
@@ -47,7 +42,17 @@ class Wax
         $this->rpcPort = $rpcPort;
         $this->trimTrailingZeroes = $trimTrailingZeroes;
         $this->timeout = $timeout;
+    }
 
+    /**
+     * set contract detail
+     *
+     * @param string $contract_address
+     * @param int $contract_decimals
+     * @throws Exception
+     */
+    public function setContract(string $contract_address = '', int $contract_decimals = 8)
+    {
         if (!$this->verifyAddressValid($contract_address)) {
             throw new Exception('The contract address is not a WAX transaction.');
         }
