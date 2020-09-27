@@ -5,6 +5,7 @@
 	"type": "library",
 	"require": {
 		"ext-bcmath": "*",
+		"ext-curl": "*",
 		"php": ">= 7.4"
 	},
 	"require-dev": {
