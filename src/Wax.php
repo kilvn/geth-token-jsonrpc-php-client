@@ -20,7 +20,7 @@ class Wax
 
     protected string $rpcHost;
     protected int $rpcPort;
-    protected string $curl;
+    protected $curl;
     protected string $contract_address;
     protected int $contract_decimals;
 
@@ -409,6 +409,10 @@ class Wax
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+        if (strpos($this->rpcHost, 'https://') === true) {
+            $opt[CURLOPT_SSL_VERIFYHOST] = 1;
+            $opt[CURLOPT_SSL_VERIFYPEER] = false;
+        }
         $res = curl_exec($ch);
 
         $response_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
