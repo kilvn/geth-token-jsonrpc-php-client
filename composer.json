@@ -1,0 +1,21 @@
+{
+	"name": "kilvn/geth-token-jsonrpc-php-client",
+	"description": "token API client lib for communication with geth (go-ethereum) node.",
+	"license": "MIT",
+	"type": "library",
+	"require": {
+		"ext-bcmath": "*",
+		"php": ">= 7.4"
+	},
+	"require-dev": {
+		"nette/tester": "@dev",
+		"mockery/mockery": "@dev",
+		"phpstan/phpstan": "^0.12",
+		"doctrine/coding-standard": "^7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Kilvn\\GethTokenJsonRpcPhpClient\\": "src/"
+		}
+	}
+}

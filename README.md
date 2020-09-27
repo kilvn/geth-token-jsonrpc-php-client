@@ -1,4 +1,6 @@
-# WAX PHP API
+# ETH Contact For PHP Json-Rpc API
+
+forked from [wax-api](https://github.com/waxio/wax-api)
 
 This class allows anyone to send or receive WAX easily from PHP. It can be used either on the command line, or in a web
 server. It will work on PHP 5.6 or higher.
@@ -11,16 +13,31 @@ You will also need to install [Geth](https://geth.ethereum.org/downloads/) and e
 
 Due to precision concerns, all amounts are represented as strings. For example, 1.2345 WAX will be returned as `"1.2345"`.
 
+# Install
+```shell
+composer require kilvn/geth-token-jsonrpc-php-client
+```
+
 # Demos
 
 There are some demos available under demo/
 
 # Usage
 
-### new Wax($rpcHost[, $rpcPort][, $trimTrailingZeroes])
-- `$rpcHost` - This should be the host where your Geth JSON-RPC is available, e.g. `"127.0.0.1"`
-- `$rpcPort` - This should be the port where your Geth JSON-RPC is available. This is optional and defaults to `8545`
+```php
+use Kilvn\GethTokenJsonRpcPhpClient;
+
+new Wax($rpcHost, $rpcPort, $contract_address, $contract_decimals, [, $trimTrailingZeroes, $timeout])
+```
+
+- `$rpcHost` - This should be the host where your Geth JSON-RPC is available, e.g. `"127.0.0.1"`, Or you can use
+ someone else's node, such as: `https://mainnet.infura.io/v3/xxxx`, In this case, you need to pass in an empty string
+  as `$rpcPort`, because this method does not need to tell what the interface port is
+- `$rpcPort` - This should be the port where your Geth JSON-RPC is available. This is optional and defaults to `8545` or empty string
+- `$contract_address` Contract address, you must tell the contract location to make the api work properly
+- `$contract_decimals` The number of decimal places when the contract is released, The type must be of type int
 - `$trimTrailingZeroes` - If true, then WAX balances and amounts will have trailing zeroes removed
+- `$timeout` The time for curl to send request timeout, the default is 60 seconds
 
 Instantiates a new `Wax` instance.
 
