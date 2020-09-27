@@ -19,7 +19,7 @@ class Wax
     public int $timeout = 60;
 
     protected string $rpcHost;
-    protected int $rpcPort;
+    protected $rpcPort;
     protected $curl;
     protected string $contract_address;
     protected int $contract_decimals;
@@ -36,7 +36,7 @@ class Wax
      */
     public function __construct(
         string $rpcHost = 'localhost',
-        int $rpcPort = 8545,
+        $rpcPort = 8545,
         string $contract_address = '',
         int $contract_decimals = 8,
         bool $trimTrailingZeroes = false,
