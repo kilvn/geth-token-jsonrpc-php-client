@@ -1,7 +1,10 @@
 <?php
-require_once(__DIR__ . '/../Wax.php');
 
-$wax = new Wax('192.168.1.6');
+use Kilvn\GethTokenJsonRpcPhpClient as EthToken;
+
+require_once(__DIR__ . '/../src/Wax.php');
+
+$wax = new EthToken\Wax('192.168.1.6');
 $addrs = $wax->getAddresses();
 
 if (empty($addrs)) {

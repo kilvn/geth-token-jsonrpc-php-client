@@ -28,7 +28,11 @@ class Wax
      * Wax constructor.
      * @param string $rpcHost The host where your Geth's JSON-RPC is available
      * @param int $rpcPort The port where your Geth's JSON-RPC is available
+     * @param string $contract_address
+     * @param int $contract_decimals
      * @param bool $trimTrailingZeroes If true, then balances returned will have their trailing zeroes stripped from the string.
+     * @param int $timeout
+     * @throws Exception
      */
     public function __construct(
         string $rpcHost,
