@@ -27,7 +27,7 @@ There are some demos available under demo/
 ```php
 use Kilvn\GethTokenJsonRpcPhpClient;
 
-new Wax($rpcHost, $rpcPort, $contract_address, $contract_decimals, [, $trimTrailingZeroes, $timeout])
+new Wax($rpcHost, $rpcPort, $contract_address, $contract_decimals [, $trimTrailingZeroes, $timeout])
 ```
 
 - `$rpcHost` - This should be the host where your Geth JSON-RPC is available, e.g. `"127.0.0.1"`, Or you can use
