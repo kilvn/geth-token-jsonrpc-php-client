@@ -44,13 +44,6 @@ class Wax
         $this->timeout = $timeout;
     }
 
-    public function __call()
-    {
-        if (!$this->verifyAddressValid($this->contract_address)) {
-            throw new Exception('The contract address is not a WAX transaction.');
-        }
-    }
-
     /**
      * set contract detail
      *
