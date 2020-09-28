@@ -18,11 +18,11 @@ class Wax
     public bool $trimTrailingZeroes = false;
     public int $timeout = 60;
 
-    protected string $rpcHost;
-    protected $rpcPort;
-    protected $curl;
-    protected string $contract_address;
-    protected int $contract_decimals;
+    public string $rpcHost;
+    public $rpcPort;
+    public $curl;
+    public string $contract_address;
+    public int $contract_decimals;
 
     /**
      * Wax constructor.
@@ -42,6 +42,13 @@ class Wax
         $this->rpcPort = $rpcPort;
         $this->trimTrailingZeroes = $trimTrailingZeroes;
         $this->timeout = $timeout;
+    }
+
+    public function __call()
+    {
+        if (!$this->verifyAddressValid($this->contract_address)) {
+            throw new Exception('The contract address is not a WAX transaction.');
+        }
     }
 
     /**
