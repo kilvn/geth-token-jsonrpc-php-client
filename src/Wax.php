@@ -18,11 +18,11 @@ class Wax
     public bool $trimTrailingZeroes = false;
     public int $timeout = 60;
 
-    public string $rpcHost;
-    public $rpcPort;
-    public $curl;
-    public string $contract_address;
-    public int $contract_decimals;
+    protected string $rpcHost;
+    protected $rpcPort;
+    protected $curl;
+    protected string $contract_address = '0xdac17f958d2ee523a2206206994597c13d831ec7';
+    protected int $contract_decimals = 6;
 
     /**
      * Wax constructor.
@@ -56,8 +56,9 @@ class Wax
         if (!$this->verifyAddressValid($contract_address)) {
             throw new Exception('The contract address is not a WAX transaction.');
         }
+
         $this->contract_address = $contract_address;
-        if (gettype($contract_decimals) == 'int' and $contract_decimals >= 0) {
+        if ($contract_decimals > 0) {
             $this->contract_decimals = $contract_decimals;
         }
     }
